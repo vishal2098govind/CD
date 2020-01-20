@@ -5,7 +5,7 @@
 Can use it to understand what is happening.
 
 
-### before understanding code, let's understand steps:
+## Before understanding code, let's understand steps:
 
 ### for input regexp in postfix form be ```ab|```
 

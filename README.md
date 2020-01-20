@@ -559,6 +559,32 @@ int main() {
   #### thus, we are here now:
   ![3-e-5](3e5.png)
   
+  ```
+              if(n->next)
+              
+                                 
+                3|      |                                         
+                 |______|     ______________________       ____________________
+                 |      |    |       |      |       |    |      |      |      |
+           n--> 4|    --|--->|   2   |   e  |     --|--->|   0  |   e  | NULL |
+                 |______|    |_______|______|_______|    |______|______|______|     
+                  graph                                            |
+                                                                   |---> n->next (thus if condition is true)
+            
+            Thus:
+                  n = n->next;
+                             
+                3|      |           
+                 |______|     ______________________      ____________________
+                 |      |    |       |      |       |    |      |      |      |
+                4|    --|--->|   2   |   e  |     --|--->|   0  |   e  | NULL |
+                 |______|    |_______|______|_______|    |______|______|______|     
+                  graph                                             |
+                                                                    |---> n
+              
+              
+  ```
+  
   ### 2nd iteration (outer while loop): (for operand a)
   ##### Now, n points to :
    ```
@@ -689,8 +715,70 @@ int main() {
   ![1-e-5](ab+.png)
   
   
+  ```
+              if(n->next)
               
-              
+                                 
+                3|      |                                         
+                 |______|     ______________________       ____________________
+                 |      |    |       |      |       |    |      |      |      |
+           n--> 4|    --|--->|   2   |   e  |     --|--->|   0  |   e  | NULL |
+                 |______|    |_______|______|_______|    |______|______|___|__|     
+                  graph                                                    |
+                                                                           |---> n->next is NULL (thus if condition is false)
+            
+            Thus:
+                  break;                           
+  ```
+   #### Thus end of while and end of ```perfOR()``` which returns ```F``` final state to ```main()```:
+   ```
+              return F;
+   ```
+   #### back to ```main``` where perfOR()``` was called which returned the final state of the e-NFA for a|b
+   ```
+                          F = perfOR();
+              printf("Final State : %d\n", F->dest);
+          }
+      }
+   ```
+   ### next in main function, we have a call to ```traverse(w, q0, F)```  which is used to traverse the graph obtained by seeing the input string ```w``` from initial state ```q0``` to either intermediate states or final state ```F```
+   ### If traversal reaches ```F```, input string ```w``` is accepted else rejected
+   
+   ### Call to ```traverse(w, q0, F)``` from ```main```:
+   ```
+          printf("Enter a string to test:\n");
+          char w;
+          scanf("%s", &w);
+          traverse(w, q0, F);
+      return 0;
+    }
+   ```
+   ### ```traverse(w, q0, F)``` function:
+   ```
+          void traverse(char w, int q0, Node *F) {
+          Node *n = graph[q0];
+          int t;
+          while(1) {
+              t = n->dest;
+              if(graph[t]->edge != w) {
+                  if(n->next == NULL) {
+                      printf("Rejected\n");
+                      break;
+                  } else n = n->next;
+              } else {
+                  while(1) {
+                      if(graph[t]->dest == F->dest) {
+                          printf("Accepted\n");
+                          break;
+                      } else t = graph[t]->dest;
+                  }
+              }
+              if(graph[t]->dest == F->dest) break;
+          }
+      }
+   ```
+
+
               
               
               

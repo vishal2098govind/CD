@@ -4,7 +4,7 @@
 
 Can use it to understand what is happening.
 
-#### *A Node:
+#### *A Node:*
 
 ```
   typedef struct Node {
@@ -19,7 +19,7 @@ Can use it to understand what is happening.
     
 ```
 
-####  The graph array (final):
+####  *The graph array (final):*
 ```
   Node * graph[100]; 
   
@@ -48,7 +48,7 @@ Can use it to understand what is happening.
   
 ```
 
-#### The counter variable:
+#### *The counter variable:*
 ```
   int counter = 0;
 ```
@@ -56,7 +56,7 @@ Can use it to understand what is happening.
 
 
 #### The stack used:
-###### It is used to store the index of graph which points to operands.
+###### It is used to store the index of graph array which points to operands.
   
 ```
   int stack[100], top = -1;
@@ -120,9 +120,10 @@ int main() {
          else {
           
  ```
- expr = "ab|"
+ #### expr = "ab|"
  
- when expr[c] = 'a'
+ ##### 1st Iteration:
+   when expr[c] = 'a'
  ###### after construct('a'):
  ![after construct('a')](a.png)
  O/P: 'Constructed a' 
@@ -140,7 +141,7 @@ int main() {
 ```
  ###### counter becomes 2 from 0
  
- 
+ ##### 2nd Iteration:
  when expr[c] = 'b'
  ###### after construct('b'):
  ![after construct('a')](b.png)

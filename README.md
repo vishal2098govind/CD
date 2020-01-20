@@ -121,6 +121,7 @@ int main() {
           
  ```
  expr = "ab|"
+ 
  when expr[c] = 'a'
  ###### after construct('a'):
  ![after construct('a')](a.png)

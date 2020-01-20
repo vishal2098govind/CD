@@ -89,7 +89,7 @@ Can use it to understand what is happening.
 int main() {
     char expr[100];
     printf("Enter postfix regexp\n");
-    scanf("%s", expr);
+    scanf("%s", expr); /* ab| */
 
     printf("Your regexp: %s\n", expr);
 
@@ -101,7 +101,9 @@ int main() {
                 printf("Constructed %c\n", expr[c]);
                 
  ```
+ ###### for 'a':
  ![after construct('a')](a.png)
  
  
+ ###### for 'b':
  ![after construct('a')](b.png)

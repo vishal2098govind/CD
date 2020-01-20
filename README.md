@@ -46,7 +46,7 @@ Can use it to understand what is happening.
     
 ```
 
-####  *The graph array (final):*
+####  The ```graph[]``` array (final):
 ```
   Node * graph[100]; 
   
@@ -77,14 +77,14 @@ Can use it to understand what is happening.
 ### i.e.:
 ![final](ab+.png)
 
-#### *The counter variable:*
+#### The ```counter``` variable:
 ```
   int counter = 0;
 ```
 ###### It is used to keep count of each of states
 
 
-#### The stack used:
+#### The ```int stack[]``` used:
 ###### It is used to store the destination node of each operand
 ```
   int stack[100], top = -1;
@@ -100,7 +100,7 @@ Can use it to understand what is happening.
 ```
 
 
-#### construct function:
+#### ```void construct(char c)``` function:
 ###### Used to construct an edge for each operand with it's opriginating and reaching nodes
 ```
   void construct(char c) {

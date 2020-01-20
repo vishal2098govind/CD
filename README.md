@@ -75,7 +75,6 @@ Can use it to understand what is happening.
 
 #### construct function:
 ###### Used to construct an edge for each operand with it's opriginating and reaching nodes
-
 ```
   void construct(char c) {
     Node *n = (Node *)malloc(sizeof(Node));
@@ -100,8 +99,7 @@ Can use it to understand what is happening.
  1|      | 
   |      |
 ```
-
-#### main function:
+#### ```int main()``` function:
 ###### Till construction of each operand
 
 ```
@@ -123,7 +121,7 @@ int main() {
               ...
           
  ```
- ### expr = "ab|"
+ ### ```expr = "ab|"```
  ```
            _____________________________
           |       |      |       |      |
@@ -132,7 +130,7 @@ int main() {
  ```
  
    ### 1st Iteration:
-   when expr[c] = 'a'
+   ### when ```expr[c] = 'a'```
    ###### after ```construct('a')```:
    ![after construct('a')](a.png)
    O/P: 'Constructed a' 
@@ -151,7 +149,7 @@ int main() {
    ###### counter becomes 2 from 0
 
    ### 2nd Iteration:
-   when ```expr[c] = 'b'```
+   ### when ```expr[c] = 'b'```
    ###### after ```construct('b')```:
    ![after construct('a')](b.png)
    O/P: 'Constructed b'
@@ -177,9 +175,9 @@ int main() {
    ###### counter becomes 4 from 2
    ### Thus, till here, we've
    ![ab](a.png)
+   
+   
    ![ab](b.png)
-   
-   
    #### ```main``` function (cont..):
    ### 3rd Iteration:
    when ```expr[c] = '|'```
@@ -200,8 +198,6 @@ int main() {
           Node *t;
    ```
    ###### ```t``` will point to initial state which is ```graph[4]```
-   ```
-   ```
    ### first-iteration of while loop in ```perfOR()```:
    ```
         while(1) {
@@ -241,19 +237,17 @@ int main() {
               while(graph[i]->dest != dest) i += 2;
    ```  
    ###### assign i with destination of new node for e-transition from initial state for performing OR operation
-              n->dest = i;
    ```
-   ```
+        n->dest = i;
        ______________________
       |       |      |       |
     n |   2   |   e  |  NULL | 
       |_______|______|_______|   
    ```
-   ```
    ###### if entry corresponding to initial node in graph array is empty, assign it with e-transition 
-              if(graph[counter] == NULL) graph[counter] = n;
-    ```
-    
+   ```
+        if(graph[counter] == NULL) graph[counter] = n;
+   ```
    ###### i.e. 
    ```
      graph[]
@@ -276,12 +270,10 @@ int main() {
      |      |
      |      |
    ```
-   
   ### i.e
   ![4-e-2](e1.png)
-  
-  
   ###### else go to end of nodes connected to that entry and make next assign it with the e-transition
+  ```
               else {
                   t = graph[counter];
                   while(t->next) t = t->next;
@@ -291,7 +283,6 @@ int main() {
           
           ...
           ...
-   ```
    ```
    ### second-iteration of while loop in ```perfOR()```:
    ```
@@ -330,20 +321,18 @@ int main() {
               while(graph[i]->dest != dest) i += 2;
    ```  
    ###### assign i with destination of new node for e-transition from initial state for performing OR operation
+   ```
               n->dest = i;
-   ```
-   ```
        ______________________
       |       |      |       |
     n |   0   |   e  |  NULL | 
       |_______|______|_______|   
    ```
-   ```
    ###### if entry corresponding to initial node in graph array is empty, assign it with e-transition 
-              if(graph[counter] == NULL) graph[counter] = n;
-    ```
+   ```
+        if(graph[counter] == NULL) graph[counter] = n;
+   ```
    ###### here this condition will be false from second iteration onwards 
-   
    ###### thus, else go to end of nodes connected to that entry and make next assign to e-transition
    ```
               else {

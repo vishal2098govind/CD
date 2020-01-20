@@ -193,14 +193,21 @@ int main() {
    ```
    ###### ```t``` will point to initial state which is ```graph[4]```
    ```
-          while(1) {
+   ```
+   ### first-iteration:
+   ```
+        while(1) {
 
               /* Get the top */
               if(top == -1) break;
               dest = pop(); /* get destination of one of the operand */
    ```
    ###### ```dest``` has destination of the last operand scanned
-   ```                        
+   ```
+   ```
+   
+   ```
+   
                                   |     |
              _____                |_____|
             |     | dest = pop()  |     |
@@ -210,32 +217,64 @@ int main() {
                                   |  1  | 
                                   |_____|
                                    stack
-   ``` 
    
    ```
+   ###### create a node for e (epsilon) transition between inistial node and starting node of the operand 
 
+   ```
               /* New node for initial state */
               Node *n = (Node *)malloc(sizeof(Node));
               n->edge = 'e'; /* epsilon */
               n->next = NULL;
+                               ______________________
+                              |       |      |       |
+                            n |       |   e  |  NULL | 
+                              |_______|______|_______|   
    ```
-  ###### create a node for e (epsilon) transition between inistial node and starting node of the operand 
-  
-   ```
-     ______________________
-    |       |      |       |
-    |       |   e  |  NULL | 
-    |_______|______|_______|   
-   ```
-   #####             
+   ######  Search for the entry in graph array which points to a node whose destination = destination obtained by popping the stack
+   ######  i.e. ```graph[i]->dest == dest```, where i gives the desired entry in graph array
    ```
              i = 0;
     
               while(graph[i]->dest != dest) i += 2;
+   ```  
+   ###### assign i with destination of new node for e-transition from initial state for performing OR operation
               n->dest = i;
-  ```
-  
+   ```
+   ```
+       ______________________
+      |       |      |       |
+    n |   2   |   e  |  NULL | 
+      |_______|______|_______|   
+   ```
+   ```
+   ###### if entry corresponding to initial node in graph array is empty, assign it with e-transition 
               if(graph[counter] == NULL) graph[counter] = n;
+    ```
+    
+   ###### i.e. 
+   ```
+     graph[]
+      ______      ______________________
+     |      |    |       |      |       |
+    0|   ---|--->|   1   |   a  |  NULL | 
+     |______|    |_______|______|_______|
+     |      |
+    1|      |
+     |______|     ______________________
+     |      |    |       |      |       |
+    2|   ---|--->|   3   |   b  |  NULL | 
+     |______|    |_______|______|_______|
+     |      |
+    3|      |
+     |______|     ______________________
+     |      |    |       |      |       |
+    4|    --|--->|   2   |   e  |  NULL | 
+     |______|    |_______|______|_______|   
+     |      |
+     |      |
+   ```
+   ###### else go to end of nodes connected to that entry and make next assign it with the e-transition
               else {
                   t = graph[counter];
                   while(t->next) t = t->next;
@@ -246,4 +285,96 @@ int main() {
           ...
           ...
    ```
+   ```
+   ### first-iteration:
+   ```
+        while(1) {
+
+              /* Get the top */
+              if(top == -1) break;
+              dest = pop(); /* get destination of one of the operand */
+   ```
+   ###### ```dest``` has destination of the last operand scanned
+   ```
+   ```
+   
+   ```
+   
+                                  |     |
+             _____                |_____|
+            |     | dest = pop()  |     |
+      dest  |  1  |<--------------|--1  | 
+            |_____|               |_____|
+                                    stack
+   
+   ```
+   ###### create a node for e (epsilon) transition between inistial node and starting node of the operand 
+
+   ```
+              /* New node for initial state */
+              Node *n = (Node *)malloc(sizeof(Node));
+              n->edge = 'e'; /* epsilon */
+              n->next = NULL;
+                               ______________________
+                              |       |      |       |
+                            n |       |   e  |  NULL | 
+                              |_______|______|_______|   
+   ```
+   ######  Search for the entry in graph array which points to a node whose destination = destination obtained by popping the stack
+   ######  i.e. ```graph[i]->dest == dest```, where i gives the desired entry in graph array
+   ```
+             i = 0;
+    
+              while(graph[i]->dest != dest) i += 2;
+   ```  
+   ###### assign i with destination of new node for e-transition from initial state for performing OR operation
+              n->dest = i;
+   ```
+   ```
+       ______________________
+      |       |      |       |
+    n |   2   |   e  |  NULL | 
+      |_______|______|_______|   
+   ```
+   ```
+   ###### if entry corresponding to initial node in graph array is empty, assign it with e-transition 
+              if(graph[counter] == NULL) graph[counter] = n;
+    ```
+   ###### here this condition will be false from second iteration onwards 
+   
+   ###### thus, else go to end of nodes connected to that entry and make next assign to e-transition
+   ```
+              else {
+                  t = graph[counter];
+                  while(t->next) t = t->next;
+                  t->next = n;
+              }
+          }
+          
+          ...
+          ...
+   ```
+   ###### i.e.
+   ```
+     graph[]
+      ______      ______________________
+     |      |    |       |      |       |
+    0|   ---|--->|   1   |   a  |  NULL | 
+     |______|    |_______|______|_______|
+     |      |
+    1|      |
+     |______|     ______________________
+     |      |    |       |      |       |
+    2|   ---|--->|   3   |   b  |  NULL | 
+     |______|    |_______|______|_______|
+     |      |
+    3|      |
+     |______|     ______________________      ____________________
+     |      |    |       |      |       |    |      |      |      |
+    4|    --|--->|   2   |   e  |     --|--->|   0  |   e  | NULL |
+     |______|    |_______|______|_______|    |______|______|______|      
+     |      |
+     |      |
+   ```
+   
    

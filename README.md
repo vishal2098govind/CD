@@ -80,4 +80,26 @@ Can use it to understand what is happening.
     counter += 2;
 }
 ```
-![alt text](graph.png)
+![after construct('a')](a.png)
+
+#### main function:
+###### Till construction of each operand
+
+```
+int main() {
+    char expr[100];
+    printf("Enter postfix regexp\n");
+    scanf("%s", expr);
+
+    printf("Your regexp: %s\n", expr);
+
+    int c = 0, q0;
+    Node *F;
+    for(; expr[c] != '\0'; c++) {
+        if(expr[c] != '|') {
+                construct(expr[c]);
+                printf("Constructed %c\n", expr[c]);
+                
+ ```
+ ![after construct('a')](a.png)
+ ![after construct('a')](b.png)

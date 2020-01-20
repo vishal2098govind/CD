@@ -120,9 +120,15 @@ int main() {
          else {
           
  ```
- ### <ul>expr = "ab|"</ul>
+ ### expr = "ab|"
+ ```
+           _____________________________
+          |       |      |       |      |
+     expr |  'a'  |  'b' |  '|'  |  \0  |
+          |_______|______|_______|______|
+ ```
  
-   ##### 1st Iteration:
+   ### 1st Iteration:
    when expr[c] = 'a'
    ###### after construct('a'):
    ![after construct('a')](a.png)
@@ -141,7 +147,7 @@ int main() {
   ```
    ###### counter becomes 2 from 0
 
-   ##### 2nd Iteration:
+   ### 2nd Iteration:
    when expr[c] = 'b'
    ###### after construct('b'):
    ![after construct('a')](b.png)

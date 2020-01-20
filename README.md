@@ -4,6 +4,29 @@
 
 Can use it to understand what is happening.
 
+
+### before understanding code, let's understand steps:
+
+
+
+### Step 1:
+![a](a.png)
+
+### Step 2:
+![b](ab.png)
+
+### Step 3:
+![4-e-2](e1.png)
+
+### Step 4:
+![4](4.png)
+
+### Step 5:
+![3-e-5](3e5.png)
+
+### Step 6:
+![final](ab+.png)
+
 #### *A Node:*
 
 ```

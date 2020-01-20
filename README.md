@@ -1,6 +1,6 @@
 # CD Lab
 
-## 1. Thomson's Construction 
+## 1. Thomson's Construction (for OR operator with any number of operands)
 
 Can use it to understand what is happening.
 
@@ -24,8 +24,10 @@ Can use it to understand what is happening.
 ### Step 5:
 ![3-e-5](3e5.png)
 
-### Step 6:
+### Step 6: (final)
 ![final](ab+.png)
+
+#### 4 is initial state and 5 is the final state
 
 #### *A Node:*
 

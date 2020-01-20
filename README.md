@@ -47,6 +47,8 @@ Can use it to understand what is happening.
   |      |
   
 ```
+### i.e.:
+![final](ab+.png)
 
 #### *The counter variable:*
 ```
@@ -131,7 +133,7 @@ int main() {
  
    ### 1st Iteration:
    when expr[c] = 'a'
-   ###### after construct('a'):
+   ###### after ```construct('a')```:
    ![after construct('a')](a.png)
    O/P: 'Constructed a' 
 
@@ -149,8 +151,8 @@ int main() {
    ###### counter becomes 2 from 0
 
    ### 2nd Iteration:
-   when expr[c] = 'b'
-   ###### after construct('b'):
+   when ```expr[c] = 'b'```
+   ###### after ```construct('b')```:
    ![after construct('a')](b.png)
    O/P: 'Constructed b'
 
@@ -173,10 +175,16 @@ int main() {
      |      |
    ```
    ###### counter becomes 4 from 2
+   ### Thus, till here, we've
+   ![ab](a.png)
+   ![ab](b.png)
    
-   #### main function (cont..):
+   
+   #### ```main``` function (cont..):
+   ### 3rd Iteration:
+   when ```expr[c] = '|'```
     ```
-    else {
+         else {
             q0 = counter; /* 4 */
             printf("Initial state: %d\n", q0); /* 4 */
             F = perfOR();  
@@ -204,10 +212,6 @@ int main() {
    ```
    ###### ```dest``` has destination of the last operand scanned
    ```
-   ```
-   
-   ```
-   
                                   |     |
              _____                |_____|
             |     | dest = pop()  |     |
@@ -217,19 +221,17 @@ int main() {
                                   |  1  | 
                                   |_____|
                                    stack
-   
    ```
    ###### create a node for e (epsilon) transition between inistial node and starting node of the operand 
-
    ```
               /* New node for initial state */
               Node *n = (Node *)malloc(sizeof(Node));
               n->edge = 'e'; /* epsilon */
               n->next = NULL;
-                               ______________________
-                              |       |      |       |
-                            n |       |   e  |  NULL | 
-                              |_______|______|_______|   
+               ______________________
+              |       |      |       |
+            n |       |   e  |  NULL | 
+              |_______|______|_______|   
    ```
    ######  Search for the entry in graph array which points to a node whose destination = destination obtained by popping the stack
    ######  i.e. ```graph[i]->dest == dest```, where i gives the desired entry in graph array

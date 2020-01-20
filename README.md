@@ -120,51 +120,51 @@ int main() {
          else {
           
  ```
- #### expr = "ab|"
+ ### <ul>expr = "ab|"</ul>
  
- ##### 1st Iteration:
+   ##### 1st Iteration:
    when expr[c] = 'a'
- ###### after construct('a'):
- ![after construct('a')](a.png)
- O/P: 'Constructed a' 
- 
- ###### This is equivalent to (in memory):
- ```
-  graph[]
-   ______      ______________________
-  |      |    |       |      |       |
- 0|   ---|--->|   1   |   a  |  NULL | 
-  |______|    |_______|______|_______|
-  |      |
- 1|      | 
-  |      |
-```
- ###### counter becomes 2 from 0
- 
- ##### 2nd Iteration:
- when expr[c] = 'b'
- ###### after construct('b'):
- ![after construct('a')](b.png)
- O/P: 'Constructed b'
- 
- ###### This is equivalent to (in memory):
+   ###### after construct('a'):
+   ![after construct('a')](a.png)
+   O/P: 'Constructed a' 
 
-```
-  graph[]
-   ______      ______________________
-  |      |    |       |      |       |
- 0|   ---|--->|   1   |   a  |  NULL | 
-  |______|    |_______|______|_______|
-  |      |
- 1|      |
-  |______|     ______________________
-  |      |    |       |      |       |
- 2|   ---|--->|   3   |   b  |  NULL | 
-  |______|    |_______|______|_______|
-  |      |
- 3|      |
-  |      |
-```
- ###### counter becomes 4 from 2
+   ###### This is equivalent to (in memory):
+   ```
+    graph[]
+     ______      ______________________
+    |      |    |       |      |       |
+   0|   ---|--->|   1   |   a  |  NULL | 
+    |______|    |_______|______|_______|
+    |      |
+   1|      | 
+    |      |
+  ```
+   ###### counter becomes 2 from 0
+
+   ##### 2nd Iteration:
+   when expr[c] = 'b'
+   ###### after construct('b'):
+   ![after construct('a')](b.png)
+   O/P: 'Constructed b'
+
+   ###### This is equivalent to (in memory):
+
+   ```
+     graph[]
+      ______      ______________________
+     |      |    |       |      |       |
+    0|   ---|--->|   1   |   a  |  NULL | 
+     |______|    |_______|______|_______|
+     |      |
+    1|      |
+     |______|     ______________________
+     |      |    |       |      |       |
+    2|   ---|--->|   3   |   b  |  NULL | 
+     |______|    |_______|______|_______|
+     |      |
+    3|      |
+     |      |
+   ```
+   ###### counter becomes 4 from 2
  
  

@@ -4,7 +4,7 @@
 
 Can use it to understand what is happening.
 
-#### A Node:
+#### * A Node:
 
 ```
   typedef struct Node {

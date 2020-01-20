@@ -79,10 +79,5 @@ Can use it to understand what is happening.
     push(counter+1);
     counter += 2;
 }
-
-
 ```
-
-
-
-
+![alt text](graph.png)

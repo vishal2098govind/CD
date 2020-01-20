@@ -194,7 +194,7 @@ int main() {
    ###### ```t``` will point to initial state which is ```graph[4]```
    ```
    ```
-   ### first-iteration:
+   ### first-iteration of while loop in ```perfOR()```:
    ```
         while(1) {
 
@@ -274,7 +274,12 @@ int main() {
      |      |
      |      |
    ```
-   ###### else go to end of nodes connected to that entry and make next assign it with the e-transition
+   
+  ### i.e
+  ![4-e-2](e1.png)
+  
+  
+  ###### else go to end of nodes connected to that entry and make next assign it with the e-transition
               else {
                   t = graph[counter];
                   while(t->next) t = t->next;
@@ -286,7 +291,7 @@ int main() {
           ...
    ```
    ```
-   ### first-iteration:
+   ### second-iteration of while loop in ```perfOR()```:
    ```
         while(1) {
 
@@ -296,9 +301,6 @@ int main() {
    ```
    ###### ```dest``` has destination of the last operand scanned
    ```
-   ```
-   
-   ```
    
                                   |     |
              _____                |_____|
@@ -306,10 +308,8 @@ int main() {
       dest  |  1  |<--------------|--1  | 
             |_____|               |_____|
                                     stack
-   
    ```
    ###### create a node for e (epsilon) transition between inistial node and starting node of the operand 
-
    ```
               /* New node for initial state */
               Node *n = (Node *)malloc(sizeof(Node));
@@ -333,7 +333,7 @@ int main() {
    ```
        ______________________
       |       |      |       |
-    n |   2   |   e  |  NULL | 
+    n |   0   |   e  |  NULL | 
       |_______|______|_______|   
    ```
    ```
@@ -376,5 +376,7 @@ int main() {
      |      |
      |      |
    ```
+   ###### i.e
+   ![4-e-1](4.png)
    
    

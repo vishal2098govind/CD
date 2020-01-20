@@ -56,8 +56,7 @@ Can use it to understand what is happening.
 
 
 #### The stack used:
-###### It is used to store the index of graph array which points to operands.
-  
+###### It is used to store the destination node of each operand
 ```
   int stack[100], top = -1;
   
@@ -118,6 +117,8 @@ int main() {
                 construct(expr[c]);
                 printf("Constructed %c\n", expr[c]);
          else {
+              ...
+              ...
           
  ```
  ### expr = "ab|"
@@ -172,5 +173,77 @@ int main() {
      |      |
    ```
    ###### counter becomes 4 from 2
- 
- 
+   
+   #### main function (cont..):
+    ```
+    else {
+            q0 = counter; /* 4 */
+            printf("Initial state: %d\n", q0); /* 4 */
+            F = perfOR();  
+            ...
+            ...
+    ``` 
+   ### ```Node * perfOR()``` function: (returns final state)
+   #### Till construction of initial state:
+   ```
+    Node *perfOR() {
+
+          int dest, i;
+          Node *t;
+   ```
+   ###### ```t``` will point to initial state which is ```graph[4]```
+   ```
+          while(1) {
+
+              /* Get the top */
+              if(top == -1) break;
+              dest = pop(); /* get destination of one of the operand */
+   ```
+   ###### ```dest``` has destination of the last operand scanned
+   ```                        
+                                  |     |
+             _____                |_____|
+            |     | dest = pop()  |     |
+      dest  |  3  |<--------------|--3  | 
+            |_____|               |_____|
+                                  |     |
+                                  |  1  | 
+                                  |_____|
+                                   stack
+   ``` 
+   
+   ```
+
+              /* New node for initial state */
+              Node *n = (Node *)malloc(sizeof(Node));
+              n->edge = 'e'; /* epsilon */
+              n->next = NULL;
+   ```
+  ###### create a node for e (epsilon) transition between inistial node and starting node of the operand 
+  
+   ```
+     ______________________
+    |       |      |       |
+    |       |   e  |  NULL | 
+    |_______|______|_______|   
+   ```
+   #####             
+   ```
+             i = 0;
+    
+              while(graph[i]->dest != dest) i += 2;
+              n->dest = i;
+  ```
+  
+              if(graph[counter] == NULL) graph[counter] = n;
+              else {
+                  t = graph[counter];
+                  while(t->next) t = t->next;
+                  t->next = n;
+              }
+          }
+          
+          ...
+          ...
+   ```
+   

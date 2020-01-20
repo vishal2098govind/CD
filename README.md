@@ -156,8 +156,8 @@ int main() {
           |_______|______|_______|______|
  ```
  
-   ### 1st Iteration:
-   ### when ```expr[c] = 'a'```
+   #### 1st Iteration of for loop:
+   #### when ```expr[c] = 'a'```
    ###### after ```construct('a')```:
    ![after construct('a')](a.png)
    O/P: 'Constructed a' 
@@ -175,8 +175,8 @@ int main() {
   ```
    ###### counter becomes 2 from 0
 
-   ### 2nd Iteration:
-   ### when ```expr[c] = 'b'```
+   #### 2nd Iteration of for loop:
+   #### when ```expr[c] = 'b'```
    ###### after ```construct('b')```:
    ![after construct('a')](b.png)
    O/P: 'Constructed b'
@@ -206,7 +206,7 @@ int main() {
    
    ![ab](b.png)
    #### ```main``` function (cont..):
-   ### 3rd Iteration:
+   #### 3rd Iteration of for loop:
    when ```expr[c] = '|'```
     ```
          else {
@@ -225,7 +225,7 @@ int main() {
           Node *t;
    ```
    ###### ```t``` will point to initial state which is ```graph[4]```
-   ### first-iteration of while loop in ```perfOR()```:
+   #### first-iteration of while loop in ```perfOR()```:
    ```
         while(1) {
 
@@ -297,7 +297,7 @@ int main() {
      |      |
      |      |
    ```
-  ### i.e
+  #### i.e
   ![4-e-2](e1.png)
   ###### else go to end of nodes connected to that entry and make next assign it with the e-transition
   ```
@@ -311,7 +311,7 @@ int main() {
           ...
           ...
    ```
-   ### second-iteration of while loop in ```perfOR()```:
+   #### second-iteration of while loop in ```perfOR()```:
    ```
         while(1) {
 
@@ -460,7 +460,7 @@ int main() {
           return F;
       }
    ```
-   ### 1st iteration (outer while loop): (for operand b)
+   #### 1st iteration (outer while loop): (for operand b)
    ```
           while(1) {
             i = n->dest;
@@ -551,7 +551,7 @@ int main() {
                                    |      |
    ```                                
    ###### Since ```graph[i = 3]``` is ```NULL``` (not pointing to any node), inner while loop terminates                          
-   ### Outer while loop continues:
+   #### Outer while loop continues:
    ```
 
               graph[i] = F;
@@ -612,7 +612,7 @@ int main() {
               
   ```
   
-  ### 2nd iteration (outer while loop): (for operand a)
+  #### 2nd iteration (outer while loop): (for operand a)
   ##### Now, n points to :
    ```
           while(1) {
@@ -706,7 +706,7 @@ int main() {
                                    |      |
    ```                                
    ###### Since ```graph[i = 1]``` is ```NULL``` (not pointing to any node), inner while loop terminates                          
-   ### Outer while loop continues:
+   #### Outer while loop continues:
    ```
 
               graph[i] = F;
@@ -768,8 +768,8 @@ int main() {
           }
       }
    ```
-   ### next in main function, we have a call to ```traverse(w, q0, F)```  which is used to traverse the graph obtained by seeing the input string ```w``` from initial state ```q0``` to either intermediate states or final state ```F```
-   ### If traversal reaches ```F```, input string ```w``` is accepted else rejected
+   #### next in main function, we have a call to ```traverse(w, q0, F)```  which is used to traverse the graph obtained by seeing the input string ```w``` from initial state ```q0``` to either intermediate states or final state ```F```
+   #### If traversal reaches ```F```, input string ```w``` is accepted else rejected
    
    ### Call to ```traverse(w, q0, F)``` from ```main```:
    ```
